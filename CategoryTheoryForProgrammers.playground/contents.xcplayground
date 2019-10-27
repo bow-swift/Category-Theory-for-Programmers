@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='raw'>
+    <pages>
+        <page name='01 - Category - The Essence of Composition'/>
+        <page name='02 - Types and Functions'/>
+        <page name='03 - Categories Great and Small'/>
+        <page name='04 - Kleisli Categories'/>
+        <page name='05 - Products and Coproducts'/>
+        <page name='06 - Simple Algebraic Data Types'/>
+        <page name='07 - Functors'/>
+        <page name='08 - Functoriality'/>
+        <page name='09 - Function Types'/>
+        <page name='10 - Natural Transformations'/>
+        <page name='11 - Declarative Programming'/>
+        <page name='12 - Limits and Colimits'/>
+        <page name='13 - Free Monoids'/>
+        <page name='14 - Representable Functors'/>
+        <page name='15 - The Yoneda Lemma'/>
+        <page name='16 - Yoneda Embedding'/>
+        <page name='17 - It&apos;s All About Morphisms'/>
+        <page name='18 - Adjunctions'/>
+        <page name='19 - Free-Forgetful Adjunctions'/>
+        <page name='20 - Monads - Programmer&apos;s Definition'/>
+        <page name='21 - Monads and Effects'/>
+        <page name='22 - Monads Categorically'/>
+        <page name='23 - Comonads'/>
+        <page name='24 - F-Algebras'/>
+        <page name='25 - Algebras for Monads'/>
+        <page name='26 - Ends and Coends'/>
+        <page name='27 - Kan Extensions'/>
+        <page name='28 - Enriched Categories'/>
+        <page name='29 - Topoi'/>
+        <page name='30 - Lawvere Theories'/>
+        <page name='31 - Monads, Monoids, and Categories'/>
+    </pages>
+</playground>
