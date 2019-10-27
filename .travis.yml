@@ -1,0 +1,15 @@
+language: objective-c
+osx_image: xcode11
+addons:
+  homebrew:
+    taps:
+    - bow-swift/nef
+    packages:
+    - nef
+
+jobs:
+  include:
+    - stage: test
+      script:
+        - set -o pipefail
+        - nef compile .
