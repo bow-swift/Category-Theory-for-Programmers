@@ -70,7 +70,6 @@
 				AD864F0E84CAF0B076BF1BF5 /* Pods-CategoryTheoryForProgrammers.debug.xcconfig */,
 				E56E10991413A64EE5884AEE /* Pods-CategoryTheoryForProgrammers.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -118,6 +117,7 @@
 				TargetAttributes = {
 					8BACBE8222576CAD00266845 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1110;
 					};
 				};
 			};
@@ -304,6 +304,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AD864F0E84CAF0B076BF1BF5 /* Pods-CategoryTheoryForProgrammers.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_CategoryTheoryForProgrammers_VERSION = 1;
@@ -325,6 +326,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -336,6 +338,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E56E10991413A64EE5884AEE /* Pods-CategoryTheoryForProgrammers.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_CategoryTheoryForProgrammers_VERSION = 1;
