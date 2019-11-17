@@ -190,6 +190,11 @@ final class Prod<S, A>: Kind<ProdPartial<S>, A> {
         self.value = value
     }
 }
+// nef:begin:hidden
+postfix func ^<S, A>(_ value: Kind<ProdPartial<S>, A>) -> Prod<S, A> {
+    value as! Prod<S, A>
+}
+// nef:end
  /*:
  ................
  ```Haskell
@@ -205,6 +210,11 @@ final class Reader<S, A>: Kind<ReaderPartial<S>, A> {
         self.f = f
     }
 }
+// nef:begin:hidden
+postfix func ^<S, A>(_ value: Kind<ReaderPartial<S>, A>) -> Reader<S, A> {
+    value as! Reader<S, A>
+}
+// nef:end
  /*:
  ................
  ```Haskell
@@ -212,9 +222,47 @@ final class Reader<S, A>: Kind<ReaderPartial<S>, A> {
    counit (Prod (Reader f, s)) = f s
    unit a = Reader (\s -> Prod (a, s))
  ```
- ```swift
- // TODO
- ```
+ */
+// nef:begin:hidden
+open class Adjunction<F: Functor, U: Functor> {
+    init() {}
+    
+    func unit<A>(_ a: A) -> Kind<U, Kind<F, A>> {
+        fatalError("Implement unit in subclasses")
+    }
+    
+    func counit<A>(_ a: Kind<F, Kind<U, A>>) -> A {
+        fatalError("Implement counit in subclasses")
+    }
+}
+
+extension ProdPartial: Functor {
+    static func map<A, B>(_ fa: Kind<ProdPartial<S>, A>, _ f: @escaping (A) -> B) -> Kind<ProdPartial<S>, B> {
+        Prod((fa^.value.0, f(fa^.value.1)))
+    }
+}
+
+extension ReaderPartial: Functor {
+    static func map<A, B>(_ fa: Kind<ReaderPartial<S>, A>, _ f: @escaping (A) -> B) -> Kind<ReaderPartial<S>, B> {
+        Reader { a in f(fa^.f(a)) }
+    }
+}
+class Snippet1 {
+// nef:end
+class StateAdjunction<S>: Adjunction<ProdPartial<S>, ReaderPartial<S>> {
+    override func unit<A>(_ a: A) -> Kind<ReaderPartial<S>, Kind<ProdPartial<S>, A>> {
+        Reader { s in Prod((s, a)) }
+    }
+    
+    override func counit<A>(_ fa: Kind<ProdPartial<S>, Kind<ReaderPartial<S>, A>>) -> A {
+        let (s, ra) = fa^.value
+        return ra^.f(s)
+    }
+}
+// nef:begin:hidden
+}
+// nef:end
+ /*:
  ................
  ```Haskell
  newtype State s a = State (s -> (a, s))
